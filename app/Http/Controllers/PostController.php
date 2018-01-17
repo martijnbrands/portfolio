@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -23,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -34,7 +35,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'title' => 'required|string',
+            'description' => 'required|string'
+        ]);
+
+        $post = Post::create([
+            'title' => request('title'),
+            'description' => request('description')
+        ]);
+
+        return redirect('/posts/' . $post->id);
     }
 
     /**
@@ -43,9 +54,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('posts.show', compact($post));
     }
 
     /**
