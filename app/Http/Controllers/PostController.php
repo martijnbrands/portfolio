@@ -39,13 +39,15 @@ class PostController extends Controller
         request()->validate([
             'title' => 'required|string',
             'description' => 'required|string',
-            'color' => 'required|string'
+            'color' => 'required|string',
+            'thumbnail' => 'string'
         ]);
 
         $post = Post::create([
             'title' => request('title'),
             'description' => request('description'),
-            'color' => request('color')
+            'color' => request('color'),
+            'thumbnail' => request('thumbnail')
         ]);
 
         return redirect('/posts/' . $post->id);
