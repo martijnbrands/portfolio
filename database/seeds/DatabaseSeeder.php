@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+    	$faker = Faker\Factory::create();
+    	for ($i=0; $i < 10; $i++) {
+  			DB::table('posts')->insert([
+
+				'title' => $faker->sentence,
+	            'description' => $faker->text($maxNbChars = 600),
+	            'color' => $faker->hexcolor,
+			]);
+		}		
+	       
     }
 }
