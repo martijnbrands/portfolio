@@ -37,12 +37,14 @@ class PostController extends Controller
     {
         request()->validate([
             'title' => 'required|string',
-            'description' => 'required|string'
+            'description' => 'required|string',
+            'color' => 'required|string'
         ]);
 
         $post = Post::create([
             'title' => request('title'),
-            'description' => request('description')
+            'description' => request('description'),
+            'color' => request('color')
         ]);
 
         return redirect('/posts/' . $post->id);
@@ -56,7 +58,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show', compact($post));
+        return view('posts.show', ['post' => $post]);
     }
 
     /**

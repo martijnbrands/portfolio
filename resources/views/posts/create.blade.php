@@ -15,6 +15,14 @@
         <label for="description">Description</label>
     </div>
 
+    <div class="group{{ $errors->has('color') ? ' has-error' : '' }}">  
+        <input class="form-control" type="text" name="color" id="color" value="{{ old('color') ?('color') : '' }}"/>
+        @if ($errors->has('color'))
+            <p>{{ $errors->first('color') }}</p>
+        @endif
+        <label for="color">Color</label>
+    </div>
+
     <div class="form-group">
         <button type="submit" class="button">Toevoegen</button>
         <a href="/home" class="button">Annuleren</a>
