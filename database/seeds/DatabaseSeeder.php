@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
 				'title' => $faker->sentence,
 	            'description' => $faker->text($maxNbChars = 600),
 	            'color' => $faker->hexcolor,
-	            'thumbnail' => $faker->imageUrl($width = 640, $height = 480),
 			]);
 		}		
 	       

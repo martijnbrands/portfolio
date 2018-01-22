@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('color');
-            $table->string('thumbnail')->default('https://lorempixel.com/640/480/?29511');
+            $table->string('thumbnail')->default('default_thumbnail.png');
             $table->timestamps();
         });
     }

@@ -27,6 +27,14 @@
             <label for="color">Color</label>
         </div>
 
+        <div class="group{{ $errors->has('color') ? ' has-error' : '' }}">  
+            <input class="form-control" type="file" name="thumbnail" id="thumbnail" value="{{ old('thumbnail') ?('thumbnail') : '' }}"/>
+            @if ($errors->has('thumbnail'))
+                <p>{{ $errors->first('thumbnail') }}</p>
+            @endif
+            <label for="thumbnail">Color</label>
+        </div>
+
         <div class="form-group">
             <button type="submit" class="btn btn-block btn-success">Toevoegen</button>
             <a href="/home" class="btn btn-block btn-danger">Annuleren</a>

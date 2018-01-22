@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+Use Image;
+Use File;
 
 class PostController extends Controller
 {
@@ -14,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-       $post = Post::all();
+       $post = Post::orderBy('created_at' , 'DESC')->get();
+
        return view('posts.index', ['posts' => $post]);
     }
 
@@ -39,15 +42,23 @@ class PostController extends Controller
         request()->validate([
             'title' => 'required|string',
             'description' => 'required|string',
-            'color' => 'required|string',
-            'thumbnail' => 'string'
+            'color' => 'required|string'
         ]);
+
+        if($request->thumbnail != ""){
+
+            $thumbnail = $request->file('thumbnail');
+                    
+            $fileName = str_slug($request->title) . '.' . $thumbnail->getClientOriginalExtension();
+            Image::make($thumbnail)->resize(200, null, function($constraint){$constraint->aspectRatio();})->save(public_path('images/uploads/' . $fileName));
+
+        }
 
         $post = Post::create([
             'title' => request('title'),
             'description' => request('description'),
             'color' => request('color'),
-            'thumbnail' => request('thumbnail')
+            'thumbnail' => $fileName,
         ]);
 
         return redirect('/posts/' . $post->id);
