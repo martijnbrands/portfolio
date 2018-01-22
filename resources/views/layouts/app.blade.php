@@ -32,6 +32,5 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <!-- Compiled and minified JavaScript -->
 </body>
 </html>

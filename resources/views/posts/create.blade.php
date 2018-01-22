@@ -28,8 +28,8 @@
         </div>
 
         <div class="form-group">
-            <button type="submit" class="button">Toevoegen</button>
-            <a href="/home" class="button">Annuleren</a>
+            <button type="submit" class="btn btn-block btn-success">Toevoegen</button>
+            <a href="/home" class="btn btn-block btn-danger">Annuleren</a>
         </div>
     </form>
 </div>

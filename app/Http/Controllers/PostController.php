@@ -72,7 +72,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -84,7 +85,25 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $post = Post::findOrFail($id);
+
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+        $input = $request->all();
+
+        $post->fill($input)->save();
+
+        //Session::flash('flash_message', 'Task successfully added!');
+
+        return redirect()->back();
+
+
+
+
     }
 
     /**
@@ -95,6 +114,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $post->delete();
+
+        // Session::flash('flash_message', 'Task successfully deleted!');
+
+        return redirect()->route('posts.index');
     }
 }
