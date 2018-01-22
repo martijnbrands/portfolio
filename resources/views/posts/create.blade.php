@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Create')
+
 @section('content')
 <div class="container">
     <form class="row" method="POST" action="/posts" enctype="multipart/form-data">{{ csrf_field() }}

@@ -8,7 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+    <title>{{ config('app.name', 'Laravel') }} | @yield('title', 'Martijn Brands')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -17,7 +18,7 @@
     <div id="app">
 
         <header>
-            @include('includes.navigation')
+            {{-- @include('includes.navigation') --}}
             @if(Request::url() === 'http://portfolio.test/posts')
                 @include('includes.header')
             @endif
