@@ -53,3 +53,7 @@ if (token) {
 //     cluster: 'mt1',
 //     encrypted: true
 // });
+
+window.AOS = require('AOS');
+AOS.init();
+

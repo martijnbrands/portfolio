@@ -18,6 +18,10 @@
 
         <header>
             @include('includes.navigation')
+            @if(Request::url() === 'http://portfolio.test/posts')
+                @include('includes.header')
+            @endif
+
         </header>
 
         <main>
