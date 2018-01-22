@@ -50,7 +50,7 @@ class PostController extends Controller
             $thumbnail = $request->file('thumbnail');
                     
             $fileName = str_slug($request->title) . '.' . $thumbnail->getClientOriginalExtension();
-            Image::make($thumbnail)->resize(200, null, function($constraint){$constraint->aspectRatio();})->save(public_path('images/uploads/' . $fileName));
+            Image::make($thumbnail)->save(public_path('images/uploads/' . $fileName));
 
         }
 
@@ -110,7 +110,7 @@ class PostController extends Controller
 
         //Session::flash('flash_message', 'Task successfully added!');
 
-        return redirect()->back();
+        return view('posts.show', ['post' => $post]);
 
 
 
