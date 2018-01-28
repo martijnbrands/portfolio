@@ -61,7 +61,7 @@ class PostController extends Controller
             'thumbnail' => $fileName,
         ]);
 
-        return redirect('/posts/' . $post->id);
+        return redirect('/posts/' . $post->slug);
     }
 
     /**

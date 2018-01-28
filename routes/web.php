@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
+Route::resource('/', 'PostController');
 Route::resource('posts', 'PostController');
 Auth::routes();
 

@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->text('description');
             $table->string('color');
             $table->string('thumbnail')->default('default_thumbnail.png');
+            $table->string('slug')->default(0);
             $table->timestamps();
         });
     }
