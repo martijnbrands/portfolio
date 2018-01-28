@@ -8401,6 +8401,7 @@ h2 {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
+  max-width: 1024px;
 }
 
 .post-list .post {

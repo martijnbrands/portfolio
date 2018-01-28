@@ -19,7 +19,6 @@
     <div id="app">
 
         <header>
-            {{-- @include('includes.navigation') --}}
             @if(Request::url() === 'http://portfolio.test/posts')
                 @include('includes.header')
             @endif

@@ -16,9 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-       $post = Post::orderBy('created_at' , 'DESC')->get();
-
-       return view('posts.index', ['posts' => $post]);
+       $posts = Post::orderBy('created_at' , 'DESC')->get();
+       return view('posts.index', compact('posts'));
     }
 
     /**
@@ -70,9 +69,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($postSlug)
     {
-        return view('posts.show', ['post' => $post]);
+        $post = Post::whereSlug($postSlug)->first();
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -84,7 +84,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('posts.edit', ['post' => $post]);
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -110,7 +110,7 @@ class PostController extends Controller
 
         //Session::flash('flash_message', 'Task successfully added!');
 
-        return view('posts.show', ['post' => $post]);
+        return view('posts.show', compact('post'));
 
 
 

@@ -7,9 +7,9 @@
 <div class="container post-list">
 	@foreach ($posts as $post)
 		<article class="post" data-aos="fade-up" data-aos-anchor-placement="top-center">
-			<a href="{{ route('posts.show', $post->id) }}">
+			<a href="{{ route('posts.show', $post->slug) }}">
 				<h2>{{ $post->title }}</h2>
-				<img src="images/uploads/{{$post->thumbnail}}" alt="{{ $post->title }}">
+				<img src="/images/uploads/{{$post->thumbnail}}" alt="{{ $post->title }}">
 			</a>
 			{{-- <p>{{ substr($post->description, 0, 50) }}{{ strlen($post->description) > 50 ? "..." : "" }}</p> --}}
 			
