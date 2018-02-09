@@ -19,10 +19,10 @@
     <div id="app">
 
         <header>
-            @if(Request::url() === 'http://portfolio.test/posts')
+            @if (Request::path() == '/')
                 @include('includes.header')
             @endif
-
+           
         </header>
 
         <main>

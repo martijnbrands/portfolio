@@ -42,5 +42,6 @@
             <a href="/" class="btn btn-block btn-danger">Annuleren</a>
         </div>
     </form>
+    <example-component></example-component>
 </div>
 @endsection
