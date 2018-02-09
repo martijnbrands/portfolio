@@ -1058,6 +1058,23 @@ AOS.init({
   disable: 'mobile'
 });
 
+var scrollPosition = 0;
+
+$(window).scroll(function () {
+
+  var currentScrollPossition = $(this).scrollTop();
+
+  if (currentScrollPossition > scrollPosition) {
+    //Scrolling Down
+    $('footer').css({ "transform": "translate(-50%, 60px)" });
+  } else {
+    //Scrolling Up
+    $('footer').css({ "transform": "translate(-50%, 0)" });
+  }
+
+  scrollPosition = currentScrollPossition;
+});
+
 /***/ }),
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {

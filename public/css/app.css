@@ -8400,6 +8400,8 @@ footer {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  -webkit-transition: .3s;
+  transition: .3s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
