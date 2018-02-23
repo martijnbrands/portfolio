@@ -16,6 +16,12 @@
 
     {{-- <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> --}}
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=cyp5auf4nvuakorr52wmpf166b4n860gznfj1kv49oc4qjrb"></script>
+    <script>
+      tinymce.init({
+        selector: '#description'
+      });
+    </script>
 
 </head>
 <body>
@@ -32,9 +38,12 @@
             @yield('content')
         </main>
         
-        <footer>
-            @include('includes.footer')
-        </footer>
+        @if (Request::path() == '/')
+            <footer>
+                @include('includes.footer')
+            </footer>
+        @endif
+        
 
     </div>
 

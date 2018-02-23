@@ -8350,14 +8350,6 @@ button.close {
   }
 }
 
-h1::-moz-selection {
-  background: Fuchsia;
-}
-
-h1::selection {
-  background: Fuchsia;
-}
-
 .intro_container {
   height: 100vh;
   width: 100%;
@@ -8386,12 +8378,14 @@ h1 {
   font-weight: 700;
   font-size: 8vw;
   text-transform: uppercase;
+  color: #000;
 }
 
 h2 {
   font-family: 'Inconsolata', sans-serif;
   font-weight: 400;
   font-size: 4vw;
+  color: #000;
 }
 
 footer {
@@ -8458,6 +8452,7 @@ footer .fab {
           flex-direction: column;
   width: 100%;
   max-width: 2560px;
+  margin-bottom: 60px;
 }
 
 .post-list .post {
@@ -8547,7 +8542,85 @@ footer .fab {
   }
 }
 
-main {
-  margin-bottom: 60px;
+.post-detail h3 {
+  font-size: 48px;
+  padding-bottom: 30px;
+}
+
+.post-detail p {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .post-detail h3 {
+    font-size: 24px;
+    padding-bottom: 15px;
+  }
+
+  .post-detail p {
+    font-size: 14px;
+  }
+}
+
+.container-fluid {
+  min-height: 100vh;
+}
+
+.close-btn {
+  position: fixed;
+  top: 55px;
+  right: 40px;
+  width: 28px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.close-btn span,
+.close-btn span:before,
+.close-btn span:after {
+  display: block;
+  width: 28px;
+  height: 4px;
+}
+
+.close-btn span {
+  position: relative;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  background: transparent;
+}
+
+.close-btn span:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transition: .3s;
+  transition: .3s;
+  background: black;
+}
+
+.close-btn span:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: .3s;
+  transition: .3s;
+  background: black;
+}
+
+.close-btn:hover span:before {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+.close-btn:hover span:after {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 

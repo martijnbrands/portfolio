@@ -32,6 +32,7 @@ class Post extends Model
         'title',
         'description',
         'color',
+        'textColor',
         'thumbnail'
     ];
 

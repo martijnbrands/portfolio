@@ -13,6 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->insert([
+            'name' => 'martijn',
+            'email' => 'martijn@portfolio.nl',
+            'password' => bcrypt('secret')
+        ]);
+
     	$faker = Faker\Factory::create();
     	for ($i=0; $i < 10; $i++) {
 
@@ -22,6 +28,7 @@ class DatabaseSeeder extends Seeder
                 'title' => $title,
                 'description' => $faker->text($maxNbChars = 600),
                 'color' => $faker->hexcolor,
+                'textColor' => $faker->hexcolor,
                 'slug' => str_slug($title)
             ]);
         }	

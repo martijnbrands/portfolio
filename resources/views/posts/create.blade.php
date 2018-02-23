@@ -5,43 +5,74 @@
 @section('content')
 <div class="container">
     <form class="row" method="POST" action="/posts" enctype="multipart/form-data">{{ csrf_field() }}
-        <div class="group{{ $errors->has('title') ? ' has-error' : '' }}">  
-            <input class="form-control" type="text" name="title" id="title" value="{{ old('title') ?('title') : '' }}"/>
-            @if ($errors->has('title'))
-                <p>{{ $errors->first('title') }}</p>
-            @endif
-            <label for="title">Title</label>
-        </div>
 
-        <div class="group{{ $errors->has('description') ? ' has-error' : '' }}">  
-            <textarea class="form-control" type="text" name="description" id="description" value="{{ old('description') ? old('description') : '' }}"/></textarea>
-            @if ($errors->has('description'))
-                <p>{{ $errors->first('description') }}</p>
-            @endif
-            <label for="description">Description</label>
-        </div>
+        <div class="form-group">
+            <div class="group{{ $errors->has('title') ? ' has-error' : '' }}">  
+                <label for="title">Title</label>
+                <input id="title" class="form-control" name="title" type="text" value="{{ old('title') }}"/>
 
-        <div class="group{{ $errors->has('color') ? ' has-error' : '' }}">  
-            <input class="form-control" type="text" name="color" id="color" value="{{ old('color') ?('color') : '' }}"/>
-            @if ($errors->has('color'))
-                <p>{{ $errors->first('color') }}</p>
-            @endif
-            <label for="color">Color</label>
-        </div>
-
-        <div class="group{{ $errors->has('color') ? ' has-error' : '' }}">  
-            <input class="form-control" type="file" name="thumbnail" id="thumbnail" value="{{ old('thumbnail') ?('thumbnail') : '' }}"/>
-            @if ($errors->has('thumbnail'))
-                <p>{{ $errors->first('thumbnail') }}</p>
-            @endif
-            <label for="thumbnail">Color</label>
+                @if ($errors->has('title'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('title') }}</strong>
+                    </span>
+                @endif
+            </div>
         </div>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-block btn-success">Toevoegen</button>
-            <a href="/" class="btn btn-block btn-danger">Annuleren</a>
+            <div class="group{{ $errors->has('description') ? ' has-error' : '' }}">  
+                <label for="description">Description</label>
+                <input id="description" class="form-control" name="description" type="text" value="{{ old('description') }}"/>
+
+                @if ($errors->has('description'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('description') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="group{{ $errors->has('color') ? ' has-error' : '' }}">  
+                <label for="color">Color</label>
+                <input id="color" class="form-control" name="color" type="text" value="{{ old('color') }}"/>
+
+                @if ($errors->has('color'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('color') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="custom-control custom-radio">
+                <input type="radio" id="textColor" name="textColor" value="#f1f1f1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadio1">White color</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="textColor" name="textColor" value="#212121" class="custom-control-input">
+                <label class="custom-control-label" for="customRadio2">Black color</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="group{{ $errors->has('thumbnail') ? ' has-error' : '' }}">  
+                <label for="thumbnail">Thumbnail</label>
+                <input id="thumbnail" class="form-control" name="thumbnail" type="file" value="{{ old('thumbnail') }}"/>
+
+                @if ($errors->has('thumbnail'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('thumbnail') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Toevoegen</button>
+            <a href="/" class="btn btn-danger pull-right">Annuleren</a>
         </div>
     </form>
-    <example-component></example-component>
 </div>
 @endsection

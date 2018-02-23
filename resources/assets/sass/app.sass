@@ -17,7 +17,48 @@
 
 // Posts
 @import "posts/post"
+@import "posts/post-detail"
+
+.container-fluid
+	min-height: 100vh
 
 
-main
-	margin-bottom: 60px
+.close-btn
+	position: fixed
+	top: 55px
+	right: 40px
+	width: $menu-width
+	height: $menu-height + $menu-spacing * 2
+	cursor: pointer
+	span, span:before, span:after
+		display: block
+		width: $menu-width
+		height: $menu-height
+	span
+		position: relative
+		transform: translateY($menu-spacing)
+		background: rgba(0, 0, 0, 0)
+		&:before
+	 		content: ""
+	 		position: absolute
+	 		left: 0
+	 		bottom: 0
+	 		transform: rotate(-45deg)
+	 		transition: .3s
+	 		background: rgba(0, 0, 0, 1)
+		&:after
+	 		content: ""
+	 		position: absolute
+	 		left: 0
+	 		top: 0
+	 		transform: rotate(45deg)
+	 		transition: .3s
+	 		background: rgba(0, 0, 0, 1)
+	&:hover
+		span
+			&:before
+				transform: rotate(0deg)
+			&:after
+				transform: rotate(0deg)
+    	
+    

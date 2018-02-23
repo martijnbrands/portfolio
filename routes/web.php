@@ -20,5 +20,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function()
 {
     Route::get('/posts/create', 'PostController@create');
-    Route::get('/posts/edit', 'PostController@edit');
+    Route::post('/posts/create', 'PostController@store');
+    Route::get('/posts/{id}/edit', 'PostController@edit');
 });

@@ -41,7 +41,9 @@ class PostController extends Controller
         request()->validate([
             'title' => 'required|string',
             'description' => 'required|string',
-            'color' => 'required|string'
+            'color' => 'required|string',
+            'textColor' => 'required|string'
+
         ]);
 
         if($request->thumbnail != ""){
@@ -53,14 +55,15 @@ class PostController extends Controller
 
         }
 
-        $post = Post::create([
+        Post::create([
             'title' => request('title'),
             'description' => request('description'),
             'color' => request('color'),
+            'textColor' => request('textColor'),
             'thumbnail' => $fileName,
         ]);
 
-        return redirect('/posts/' . $post->id);
+        return redirect('/');
     }
 
     /**
@@ -108,8 +111,6 @@ class PostController extends Controller
 
         $post->fill($input)->save();
 
-        //Session::flash('flash_message', 'Task successfully added!');
-
         return view('posts.show', compact('post'));
 
 
@@ -128,8 +129,6 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
 
         $post->delete();
-
-        // Session::flash('flash_message', 'Task successfully deleted!');
 
         return redirect()->route('posts.index');
     }
