@@ -26,6 +26,9 @@
 </head>
 <body>
     <div id="app">
+        @auth
+            @include('includes.navigation')
+        @endauth
 
         <header>
             @if (Request::path() == '/')
@@ -33,8 +36,7 @@
             @endif
            
         </header>
-        @include('includes.navigation')
-
+    
         <main>
             @yield('content')
         </main>
@@ -44,7 +46,6 @@
                 @include('includes.footer')
             </footer>
         @endif
-        
 
     </div>
 

@@ -19,6 +19,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function()
 {
     Route::get('/posts/{post}/edit', 'PostController@edit')->name('posts.edit');
+    Route::get('/posts', 'PostController@destroy')->name('posts.destroy');
     Route::get('/posts/create', 'PostController@create')->name('posts.create');
     Route::post('/posts', 'PostController@store')->name('posts.store');
     Route::post('/posts/{post}', 'PostController@update')->name('posts.update');

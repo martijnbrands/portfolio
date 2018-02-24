@@ -62,5 +62,13 @@
             <a href="/" class="btn btn-danger pull-right">Annuleren</a>
         </div>
     </form>
+
+    <form class="row" method="DELETE" action="{{ route('posts.destroy', $post->id) }}" enctype="multipart/form-data">
+        {{ csrf_field() }}
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-warning">Delete Post</button>
+        </div>
+    </form>
 </div>
 @endsection

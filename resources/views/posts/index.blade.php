@@ -11,9 +11,6 @@
 				<h2>{{ $post->title }}</h2>
 				<img src="/images/uploads/{{$post->thumbnail}}" alt="{{ $post->title }}">
 			</a>
-			{{-- <p>{{ substr($post->description, 0, 50) }}{{ strlen($post->description) > 50 ? "..." : "" }}</p> --}}
-			
-{{-- 			<a class="btn btn-block btn-primary" href="{{ route('posts.edit', $post->id) }}">Bewerk</a> --}}
 		</article>
 	
 	@endforeach
