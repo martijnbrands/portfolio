@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('color');
-            $table->string('textColor');
+            $table->string('textColor')->default('#000000');
             $table->string('thumbnail')->default('default_thumbnail.png');
             $table->string('slug')->default(0);
             $table->timestamps();
@@ -35,3 +35,5 @@ class CreatePostsTable extends Migration
         Schema::dropIfExists('posts');
     }
 }
+
+

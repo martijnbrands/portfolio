@@ -33,6 +33,7 @@
             @endif
            
         </header>
+        @include('includes.navigation')
 
         <main>
             @yield('content')

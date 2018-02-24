@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,15 +10,19 @@
 |
 */
 
-Route::resource('/', 'PostController');
-Route::resource('posts', 'PostController');
-Auth::routes();
+// Route::resource('/', 'PostController');
+// Route::resource('posts', 'PostController');
 
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function()
 {
-    Route::get('/posts/create', 'PostController@create');
-    Route::post('/posts/create', 'PostController@store');
-    Route::get('/posts/{id}/edit', 'PostController@edit');
+    Route::get('/posts/{post}/edit', 'PostController@edit')->name('posts.edit');
+    Route::get('/posts/create', 'PostController@create')->name('posts.create');
+    Route::post('/posts', 'PostController@store')->name('posts.store');
+    Route::post('/posts/{post}', 'PostController@update')->name('posts.update');
 });
+
+Route::get('/', 'PostController@index');
+Route::get('/posts/{post}', 'PostController@show')->name('posts.show');

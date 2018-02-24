@@ -52,7 +52,8 @@ class PostController extends Controller
                     
             $fileName = str_slug($request->title) . '.' . $thumbnail->getClientOriginalExtension();
             Image::make($thumbnail)->save(public_path('images/uploads/' . $fileName));
-
+        }else{
+            $fileName = "default_thumbnail.png";
         }
 
         Post::create([
@@ -84,9 +85,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($postSlug)
     {
-        $post = Post::find($id);
+        $post = Post::whereSlug($postSlug)->first();
         return view('posts.edit', compact('post'));
     }
 
@@ -97,25 +98,20 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-
-        $post = Post::findOrFail($id);
-
-        $this->validate($request, [
+        request()->validate([
             'title' => 'required',
             'description' => 'required'
         ]);
 
-        $input = $request->all();
+        $post->update([
+            'title' => request('title'),
+            'description' => request('description'),
+            'color' => request('color')
+        ]);
 
-        $post->fill($input)->save();
-
-        return view('posts.show', compact('post'));
-
-
-
-
+        return redirect('/posts/' . $post->slug);
     }
 
     /**
