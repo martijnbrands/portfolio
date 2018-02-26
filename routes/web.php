@@ -26,4 +26,5 @@ Route::group(['middleware' => 'auth'], function()
 });
 
 Route::get('/', 'PostController@index');
+Route::get('/posts/fetch', 'PostController@fetch')->name('posts.fetch');
 Route::get('/posts/{post}', 'PostController@show')->name('posts.show');

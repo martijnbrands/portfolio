@@ -4,8 +4,7 @@
 
 @section('content')
 
-<div class="container post-list">
-	@foreach ($posts as $post)
+	{{-- @foreach ($posts as $post)
 		<article class="post" data-aos="fade-up" data-aos-anchor-placement="top-center">
 			<a href="{{ route('posts.show', $post->slug) }}">
 				<h2>{{ $post->title }}</h2>
@@ -13,7 +12,7 @@
 			</a>
 		</article>
 	
-	@endforeach
-</div>
+	@endforeach --}}
+<posts><posts>
 
 @endsection

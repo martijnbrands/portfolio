@@ -56,7 +56,7 @@ if (token) {
 
 window.AOS = require('AOS');
 AOS.init({
-      disable: 'mobile'
+      
 });
 
 var scrollPosition = 0;

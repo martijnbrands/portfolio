@@ -128,4 +128,11 @@ class PostController extends Controller
 
         return redirect('/');
     }
+    public function fetch(Request $request, Post $post)
+    {
+        $posts = Post::orderBy('created_at' , 'DESC')->get();
+
+        return response()->json(['posts'=>$posts]);
+
+    }
 }
