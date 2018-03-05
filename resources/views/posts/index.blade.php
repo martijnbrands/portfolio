@@ -13,6 +13,7 @@
 		</article>
 	
 	@endforeach --}}
-<posts><posts>
+<router-view></router-view>
+{{-- <posts><posts> --}}
 
 @endsection

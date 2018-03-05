@@ -8530,11 +8530,24 @@ footer .fab {
   }
 
   .post-list h2 {
-    top: 350px;
-    bottom: auto;
-    left: 0;
-    width: 100%;
+    top: auto;
+    bottom: -25px;
+    left: 15px;
+    right: auto;
+    width: auto;
     font-size: 16px;
+  }
+
+  .post-list .post:nth-child(even) a {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+
+  .post-list .post:nth-child(even) h2 {
+    right: 15px;
+    left: auto;
   }
 }
 
