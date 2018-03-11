@@ -47,11 +47,11 @@
 
         <div class="form-group">
             <div class="custom-control custom-radio">
-                <input type="radio" id="textColor" name="textColor" value="#f1f1f1" class="custom-control-input">
+                <input type="radio" id="textColor" name="textColor" value="#fff" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio1">White color</label>
             </div>
             <div class="custom-control custom-radio">
-                <input type="radio" id="textColor" name="textColor" value="#212121" class="custom-control-input">
+                <input type="radio" id="textColor" name="textColor" value="#000" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio2">Black color</label>
             </div>
         </div>

@@ -78,3 +78,9 @@ $(window).scroll(function () {
 });
 
 
+
+if ($('.container-fluid').css('color') == 'rgb(255, 255, 255)'){
+   $('.post-detail').addClass("white-content");
+}else{
+    $('.post-detail').addClass("black-content");
+}

@@ -1215,9 +1215,9 @@ window._ = __webpack_require__(15);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(17);
+    window.$ = window.jQuery = __webpack_require__(17);
 
-  __webpack_require__(18);
+    __webpack_require__(18);
 } catch (e) {}
 
 /**
@@ -1239,9 +1239,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 /**
@@ -1268,18 +1268,24 @@ var scrollPosition = 0;
 
 $(window).scroll(function () {
 
-  var currentScrollPossition = $(this).scrollTop();
+    var currentScrollPossition = $(this).scrollTop();
 
-  if (currentScrollPossition > scrollPosition) {
-    //Scrolling Down
-    $('footer').css({ "transform": "translate(-50%, 60px)" });
-  } else {
-    //Scrolling Up
-    $('footer').css({ "transform": "translate(-50%, 0)" });
-  }
+    if (currentScrollPossition > scrollPosition) {
+        //Scrolling Down
+        $('footer').css({ "transform": "translate(-50%, 60px)" });
+    } else {
+        //Scrolling Up
+        $('footer').css({ "transform": "translate(-50%, 0)" });
+    }
 
-  scrollPosition = currentScrollPossition;
+    scrollPosition = currentScrollPossition;
 });
+
+if ($('.container-fluid').css('color') == 'rgb(255, 255, 255)') {
+    $('.post-detail').addClass("white-content");
+} else {
+    $('.post-detail').addClass("black-content");
+}
 
 /***/ }),
 /* 15 */

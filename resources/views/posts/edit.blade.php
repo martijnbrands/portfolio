@@ -44,6 +44,18 @@
                 @endif
             </div>
         </div>
+
+        <div class="form-group">
+            <div class="custom-control custom-radio">
+                <input type="radio" id="textColor" name="textColor" value="#fff" class="custom-control-input">
+                <label class="custom-control-label" for="customRadio1">White color</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="textColor" name="textColor" value="#000" class="custom-control-input">
+                <label class="custom-control-label" for="customRadio2">Black color</label>
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="group{{ $errors->has('thumbnail') ? ' has-error' : '' }}">  
                 <label for="thumbnail">Thumbnail</label>

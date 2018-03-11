@@ -8560,6 +8560,11 @@ footer .fab {
   font-size: 18px;
 }
 
+.post-detail.white-content .close-btn span:before,
+.post-detail.white-content .close-btn span:after {
+  background: white;
+}
+
 @media screen and (max-width: 768px) {
   .post-detail h3 {
     font-size: 24px;
@@ -8568,6 +8573,36 @@ footer .fab {
 
   .post-detail p {
     font-size: 14px;
+  }
+
+  .post-detail.white-content .close-btn {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    padding: 15px;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    background: #fff;
+  }
+
+  .post-detail.white-content .close-btn span:before,
+  .post-detail.white-content .close-btn span:after {
+    background: black;
+  }
+
+  .post-detail.black-content .close-btn {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    padding: 15px;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    background: #000;
+  }
+
+  .post-detail.black-content .close-btn span:before,
+  .post-detail.black-content .close-btn span:after {
+    background: white;
   }
 }
 

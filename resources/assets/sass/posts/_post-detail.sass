@@ -5,6 +5,11 @@
 	p
 		font-size: 18px
 
+.post-detail.white-content
+	.close-btn
+		span
+			&:before, &:after
+				background: rgba(255, 255, 255, 1)
 @media screen and (max-width: 768px)
 	.post-detail
 		h3
@@ -12,3 +17,25 @@
 			padding-bottom: 15px
 		p
 			font-size: 14px
+	.post-detail.white-content
+		.close-btn
+			top: auto
+			bottom: 0
+			right: 0
+			padding: 15px
+			box-sizing: content-box
+			background: #fff
+			span
+				&:before, &:after
+					background: rgba(0, 0, 0, 1)
+	.post-detail.black-content
+		.close-btn
+			top: auto
+			bottom: 0
+			right: 0
+			padding: 15px
+			box-sizing: content-box
+			background: #000
+			span
+				&:before, &:after
+					background: rgba(255, 255, 255, 1)
