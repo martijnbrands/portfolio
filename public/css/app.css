@@ -8557,7 +8557,13 @@ footer .fab {
 }
 
 .post-detail p {
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.post-detail a {
+  color: #fff;
+  text-decoration: underline;
 }
 
 .post-detail.white-content .close-btn span:before,
